@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.icoalert.ui.fragmenticoslist.IcosListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="com.hibrianlee.sample.mvvm.fragment.AndroidVersionsFragment">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.progressStatus.content ? View.VISIBLE : View.GONE}"
+            bind:layoutManager="@{viewModel.layoutManager}"
+            bind:listAdapter="@{viewModel.adapter}"
+            bind:scrollListener="@{viewModel.scrollListener}" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/icos_empty_view_hint"
+            android:visibility="@{viewModel.progressStatus.emptyData ? View.VISIBLE : View.GONE}"
+            android:textColor="@color/hint_color" />
+
+        <ProgressBar
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:visibility="@{viewModel.progressStatus.progressShown ? View.VISIBLE : View.GONE}"
+            android:gravity="center"/>
+    </LinearLayout>
+</layout>

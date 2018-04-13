@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="icoDto"
+            type="com.icoalert.api.data.IcoDto" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:background="@drawable/ico_item_bg"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="78dp"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="@{ icoDto.getDaysLeft() }"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/h0TextSize" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/days_left"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/h3TextSize" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp"
+                android:background="@color/hint_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:lines="1"
+                    android:text="@{ icoDto.name }"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/h1_5TextSize" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:text="@{ icoDto.about }"
+                    android:textColor="@color/hint_color"
+                    android:textSize="@dimen/h4TextSize" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
